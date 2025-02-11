@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PostController::class, 'index']);
+// 対象URLにリクエストが来たら、PosstControllerにあるindexメソッドを実行する
+
+ROute::get('/posts/create', [PostController::class, 'create']);
+// 対象URLにリクエストが来たら、PosstControllerにあるcreateメソッドを実行する
 
 Route::get('/posts/{post}', [PostController::class, 'show']);
 // 対象URLにリクエストが来たら、PosstControllerにあるshowメソッドを実行する
+
+Route::post('/posts', [PostController::class, 'store']);
+// 対象URLにリクエストが来たら、PosstControllerにあるstoreメソッドを実行する

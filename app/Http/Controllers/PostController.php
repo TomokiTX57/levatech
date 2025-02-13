@@ -29,4 +29,16 @@ class PostController extends Controller
         $post->fill($input)->save(); //fillメソッドで$postのプロパティを一括代入し、saveメソッドで保存
         return redirect(('posts/' . $post->id)); //保存後、リダイレクト
     }
+
+    public function edit(Post $post)
+    {
+        return view('posts.edit')->with(['post' => $post]); //blade内で使う変数'post'と設定して、postの中にインスタンス化した$postを代入
+    }
+
+    public function update(Request $request, Post $post)
+    {
+        $input = $request['post']; //リクエストの中のpostを取得
+        $post->fill($input)->save(); //fillメソッドで$postのプロパティを一括代入し、saveメソッドで保存
+        return  redirect('posts/' . $post->id); //保存後、リダイレクト
+    }
 }

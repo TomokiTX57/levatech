@@ -17,8 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PostController::class, 'index']);
 // 対象URLにリクエストが来たら、PosstControllerにあるindexメソッドを実行する
 
-ROute::get('/posts/create', [PostController::class, 'create']);
+Route::get('/posts/create', [PostController::class, 'create']);
 // 対象URLにリクエストが来たら、PosstControllerにあるcreateメソッドを実行する
+
+Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+// 対象URLにリクエストが来たら、PosstControllerにあるeditメソッドを実行する
+
+Route::put('/posts/{post}', [PostController::class, 'update']);
+// 対象URLにリクエストが来たら、PosstControllerにあるupdateメソッドを実行する
 
 Route::get('/posts/{post}', [PostController::class, 'show']);
 // 対象URLにリクエストが来たら、PosstControllerにあるshowメソッドを実行する
